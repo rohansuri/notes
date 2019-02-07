@@ -28,6 +28,30 @@
 
 #### Merkle DAG
 
+* DAG as we know is a directed acyclic graph.
+
+* Trees are DAGs with a restriction that a node can have only one parent.
+
+* Also called merkle-web, merkle-forest, merkle-chain.
+
+##### Git
+
+* Git's data model is a Merkle DAG too, with nodes being git objects (blobs, trees, commits, tags)
+
+* The directed links that are formed:  
+  trees -> blobs  
+  commits -> trees
+
+* The reason it's called a *Merkle* DAG is because the links between nodes of the graph are formed by the source node keeping a hash of the content of the target node, which is akin to Merkle trees.
+
+* Essentially the idea being to look up nodes in the graph by their content's hash.
+
+* We use cryptographic hashes to content address since those are the only succinct and unique (high collision resitant) representations of the node.
+
+* Therefore, Git is a content addressable file system.
+
+
+
 #### Sybil attacks
 
 
